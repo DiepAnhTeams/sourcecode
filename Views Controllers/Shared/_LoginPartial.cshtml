@@ -1,0 +1,44 @@
+﻿@using Shop_thien_thanh.Models;
+@{ 
+    KhachHang kh = new KhachHang();
+}
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script>
+    $(function () {
+
+        $("#frmDangNhap").submit(function () {
+            if ($("#kh_TenDangNhap").val() == "" || $("#kh_MatKhau").val() == "") {
+                alert("Bạn chưa nhập tên đăng nhập hoặc mật khẩu.");
+                return false;
+            }
+        });
+
+        
+
+    });
+</script>
+
+@if (Session["tendangnhap"] == null)
+{
+
+<div class="dangnhap">
+    <form action="@Url.Action("DangNhap", "KhachHang")" method="post" id="frmDangNhap">
+       @Html.AntiForgeryToken()
+    Tài khoản: @Html.TextBoxFor(m => kh.TenDangNhap, new { size = "15", placeholder = "Tài khoản" })
+    Mật khẩu: @Html.PasswordFor(m => kh.MatKhau, new { size = "15", placeholder = "Mật khẩu" }) 
+    <input type="image"  style="float:right;" alt="Login.png" src="~/images/Login.jpg" id="Login" title="Đăng nhập"><br>
+        <a href="@Url.Action("DangKy", "KhachHang")" style="float:right;">
+            <img src="~/images/DangKy.gif" />
+        </a>
+    </form>
+   
+</div>
+}
+else {
+    <div style="float:right; margin: 20px">
+        Xin chào <a href="@Url.Action("Index", "Home", new { area="Admin"})">@Session["hoten"]</a>  | 
+        <a href="@Url.Action("DangXuat","KhachHang")"> Đăng xuất </a>
+    </div>
+}

@@ -1,0 +1,115 @@
+﻿@{ 
+    ViewBag.Title = "Giới thiệu";
+}
+@section head{
+     <!--4/ custom scroll -->
+
+<link href="~/jQuery/custom-scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+<style>
+    .content {
+        width: 220px;
+        height: 220px;
+        overflow: auto;
+        background: #FFFFFF;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        border-radius: 3px;
+    }
+</style>
+<script src="~/jQuery/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<script>
+    (function ($) {
+        $(window).load(function () {
+            $("#content_2").mCustomScrollbar({
+                scrollButtons: {
+                    enable: true
+                },
+                theme: "dark-thick"
+            });
+        });
+    })(jQuery);
+    /*theme:"light" /*"light", "dark", "light-2", "dark-2", "light-thick", "dark-thick", "light-thin", "dark-thin" */
+</script>
+}
+@*Script fanpage*@
+<div id="fb-root"></div>
+<script>
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8&appId=1265250466840793";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<section id="mainContainer">
+    <!--start sidebar1-->
+    <aside id="sidebar1">
+        @Html.Action("_SanPhamMoiPartial","Home")
+        @Html.Partial("_HoTroTrucTuyenPartial")
+        @Html.Partial("_ThongKePartial")
+
+
+    </aside>
+    <!--end sidebar1-->
+    <!--start content-->
+    <section id="content">
+        <div class="banner2"><img src="~/images/img_01.jpg" alt="img_01.jpg" /></div>
+        <div class="post">
+            <h2>Chào mừng bạn đến với shop quần áo rẻ đẹp!</h2>
+            <div class="khauhieu">
+                <div id="kh1" class="kh">Hãy thỏa sức</div><div id="kh2" class="kh">shopping </br.>online</div>
+                <div id="kh3" class="kh">cùng shop <br />quần áo</div><div id="kh4" class="kh">rẻ đẹp nhé!</div>
+            </div>
+            <article class="entry">
+                <p>
+                    Để chuẩn bị cho một ngày mới năng động và hiệu quả, bạn không thể lơ là trong việc chọn lựa cho mình một bộ cánh tươm tất và thật xinh xắn. Diện cho mình những bộ áo quần hợp thời trang, vừa thanh lịch lại vừa rất trẻ trung, duyên dáng, sành điệu… đó chính là điều mà
+                    Shop <b>PDA</b> muốn giới thiệu với các bạn.
+                </p>
+                <p>
+                    Shop thời trang <b>PDA</b> với nhiều sản phẩm phong phú, đa dạng: Quần áo, dây lưng, ví da, kính mắt nam nữ… với mẫu mã, kiểu dáng model nhất được cập nhật liên tục theo xu hướng thời trang trẻ.
+                    Với những chiếc áo sơ mi, quần âu lịch sự nhưng rất tôn vóc dáng của bạn, dáng đầm ngắn đa dạng về màu sắc và kiểu dáng tôn nên vẻ đẹp nhẹ nhàng và nữ tính, giản dị nhưng kiêu sa và rất hợp với xu hướng hiện đại.
+                    Hòa nhịp cùng những bộ phụ trang như vòng đeo tay hay ví nhỏ, dây lưng, kính mắt, bông tai, giày cao gót… khiến bộ trang phục của bạn thật nổi bật và cá tính khi bạn đến với Shop thời trang
+                    <b>Thiên Thanh</b> chúng tôi.
+                </p>
+                <p>
+                    Chúng tôi sẽ giao hàng tận nơi trong thời gian nhanh nhất!
+                    Hãy đến với Shop thời trang <b>Thiên Thanh</b> để chọn cho mình những bộ trang phục duyên dáng và hợp với mình nhất nha bạn!
+                </p>
+                Liên hệ trực tiếp: <a href="#">Shop Thời Trang PDA</a>
+                <p>
+                    Địa chỉ: 357 Lê Hồng Phong, Q.10, TP.HCM <br />
+                    Holine: 0914 024 357
+                </p>
+
+            </article>
+        </div>
+        <article class="post">
+            <h2>Thông tin về chúng tôi</h2>
+            <p class="byline"></p>
+            <article class="entry">
+                <h3>Danh sách cửa hàng: </h3>
+                <ul>
+                    <li>Shop Thiên Thanh 1, 233 Hai Bà Trưng, Quận 3, TPHCM</li>
+                    <li>Shop Thiên Thanh 2, 227 Hai Bà Trưng, Quận 5, TPHCM</li>
+                    <li>Shop Thiên Thanh 3, số 2 Trần Quang Khải, Quận 1, TPHCM</li>
+                </ul>
+                <h3>Đặc biệt:</h3>
+                <ol>
+                    <li>Giao hàng tận nơi, không tính phí</li>
+                    <li>Có giảm giá cho khách hàng thân thiết</li>
+                    <li>Giảm giá cho các dịp lễ và Tết</li>
+                </ol>
+            </article>
+        </article>
+        <!--end content-->
+
+    </section>
+    <!--end content-->
+    <!-- start sidebars -->
+    <aside id="sidebar2" class="sidebar">
+        @Html.Partial("_GioHangPartial")
+        <div class="fb-page" data-href="https://www.facebook.com/TuHocTiengNhatOnlineHieuQua/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/TuHocTiengNhatOnlineHieuQua/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/TuHocTiengNhatOnlineHieuQua/">Học Tiếng Nhật Online</a></blockquote></div>
+    </aside>
+    <div style="clear:both;">&nbsp;</div>
+</section>

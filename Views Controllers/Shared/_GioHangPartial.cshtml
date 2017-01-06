@@ -1,0 +1,12 @@
+﻿@using Shop_thien_thanh.Models;
+<div class="subsidebar">
+    <div class="bar_title">
+        <div class="bar_left"></div>
+        <div class="bar_bg"><a href="@Url.Action("Index", "GioHang", new { area=""})" style="color:#fff"><img src="~/images/cart.gif" align="middle" style="top:-5px;" /> Giỏ hàng</a> </div>
+        <div class="bar_right"></div>
+    </div>
+    <div class="subsideframe">
+        <p>Số lượng: <b>@(Session["giohang"] == null ? 0 : ((List<GioHangItem>)Session["giohang"]).Sum(m=>m.SoLuong))</b></p>
+        <p>Trị giá: <b>@(Session["giohang"] == null ? 0 : ((List<GioHangItem>)Session["giohang"]).Sum(m => m.ThanhTien))</b> VNĐ</p>
+    </div>
+</div>

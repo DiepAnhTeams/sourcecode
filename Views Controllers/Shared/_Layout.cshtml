@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/Style/default.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.11.0.min.js"></script>
+    <script src="~/Scripts/Thuvien.js"></script>
+
+    @RenderSection("head", false)
+
+
+    <!-- menu jquery -->
+    <link href="~/jQuery/Menu/style.css" rel="stylesheet" />
+    <script src="~/jQuery/Menu/simpleMenu.js"></script>
+
+
+</head>
+<body>
+    <!--start header-->
+    <header id="header"> 
+        <div id="logo">
+            <a href="@Url.Action("Index","Home")"><h1><span style="color:#000000">PDA</span> Shop </h1> <p>THỜI TRANG NAM NỮ</p></a>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </header>
+    <!--end header-->
+    <!--start menu-->
+            @Html.Action("_MenuPartial","Home")
+    <!--end menu-->
+    @RenderBody()
+    <!--start Footer-->
+    <footer id="ftr">
+        <div id="footer">
+            <p class="copyright">
+                &copy;&nbsp;&nbsp;2016 All Rights Reserved &nbsp;&bull;&nbsp; Design by
+                <a href="http://www.alphatek.edu.vn/">Diệp Anh - 13DTHC05</a>
+            </p>
+            <p class="link">
+                <a href="https://www.facebook.com/diepnguyenhoang.anh"><img src="~/images/facebook.png" /></a>
+                <a href="https://www.youtube.com/channel/UCPHxb3X617gD0IbK_sTR1Ow"><img src="~/images/youTube.png" /></a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

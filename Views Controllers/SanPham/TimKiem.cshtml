@@ -1,0 +1,88 @@
+﻿@using Shop_thien_thanh.Models;
+@model List<SanPham>
+@{
+    ViewBag.Title = "Kết quả tìm kiếm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <!--4/ custom scroll -->
+
+    <link href="~/jQuery/custom-scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+    <style>
+        .content {
+            width: 220px;
+            height: 220px;
+            overflow: auto;
+            background: #FFFFFF;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            -ms-border-radius: 3px;
+            border-radius: 3px;
+        }
+    </style>
+    <script src="~/jQuery/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script>
+        (function ($) {
+            $(window).load(function () {
+                $("#content_2").mCustomScrollbar({
+                    scrollButtons: {
+                        enable: true
+                    },
+                    theme: "dark-thick"
+                });
+            });
+        })(jQuery);
+        /*theme:"light" /*"light", "dark", "light-2", "dark-2", "light-thick", "dark-thick", "light-thin", "dark-thin" */
+    </script>
+}
+
+<!--start content Page-->
+<section id="mainContainer">
+    <!--start sidebar1-->
+    <aside id="sidebar1" class="sidebar">
+        @Html.Action("_SanPhamMoiPartial", "Home")
+        @Html.Partial("_HoTroTrucTuyenPartial")
+        @Html.Partial("_ThongKePartial")
+    </aside>
+    <!--end sidebar1-->
+    <!--start content-->
+    <section id="maincontent">
+        <div class="muctieude2">
+            <div class="tieude" style="margin-left:15px">◊ Kết quả tìm kiếm với từ khóa "@ViewBag.TuKhoa"</div>
+            <div class="dshinh" style="margin-left:15px">
+                <table style=" border-collapse: collapse;">
+                    <tr>
+                        <td>
+                            <table>
+                                @for (int i = 0; i < Model.Count; i += 4)
+                                { 
+                                <tr>
+                                    @foreach (SanPham item in Model.Skip(i).Take(4))
+                                    { 
+                                    <td>
+                                        <a href="@Url.Action("ChiTiet", new { id = item.SanPhamID })">
+                                            <img class="hinh" src="~/Photos/SanPham/@item.Hinh" /><br />
+                                            <div class="tensanpham">
+                                                <span>@item.TenSanPham </span>
+                                            </div>
+                                        </a>
+                                        <input type="image" src="~/images/cart2.png" class="gio" title="Chọn mua hàng" /> Đơn giá: @item.DonGia.ToString("#,##0").Replace(',','.') đ
+                                        <br />
+                                    </td>
+                                    }
+                                </tr>
+                               
+                                }
+                                  
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </section>
+    <!--end content-->
+</section>
+
+<!--end content Page-->

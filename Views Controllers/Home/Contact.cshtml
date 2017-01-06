@@ -1,0 +1,134 @@
+﻿@using Shop_thien_thanh.Models;
+@model HopThu
+@{
+    ViewBag.Title = "Liên hệ";
+}
+@section head{
+    
+        <!-- Thêm script này để bắt lỗi bằng jquery-->
+<script src="~/Scripts/jquery.validate.min.js"></script>
+  
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <!-- custom scroll -->
+
+    <link href="~/jQuery/custom-scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+    <style>
+        .content {
+            width: 220px;
+            height: 220px;
+            overflow: auto;
+            background: #FFFFFF;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            -ms-border-radius: 3px;
+            border-radius: 3px;
+        }
+    </style>
+    <script src="~/jQuery/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script>
+    (function ($) {
+        $(window).load(function () {
+            $("#content_2").mCustomScrollbar({
+                scrollButtons: {
+                    enable: true
+                },
+                theme: "dark-thick"
+            });
+        });
+    })(jQuery);
+    /*theme:"light" /*"light", "dark", "light-2", "dark-2", "light-thick", "dark-thick", "light-thin", "dark-thin" */
+    </script>
+
+  
+}
+<!--start content Page-->
+<section id="mainContainer">
+    <!--start sidebar1-->
+    <aside id="sidebar1">
+        <div class="subsidebar">
+            <!--Mục 1-->
+            @Html.Action("_SanPhamMoiPartial", "Home")
+        </div>
+        <div class="subsidebar">
+            <!--Mục 2-->
+            @Html.Partial("_HoTroTrucTuyenPartial")
+        </div>
+        <div class="subsidebar">
+            <!--Mục 3-->
+            @Html.Partial("_ThongKePartial")
+        </div>
+    </aside>
+    <!--end sidebar1-->
+    <!--start content-->
+    <section id="content">
+        <div class="formbox">
+            <h1>Liên Hệ Admin</h1>
+            <p class="byline"></p>
+            <form action="@Url.Action("Contact")" method="post">
+                @Html.AntiForgeryToken()
+                <table cellpadding="2" cellspacing="2">
+                    <tr>
+                        <td class="right">Họ tên:</td>
+                        <td class="left">@Html.TextBoxFor(m => m.Hoten, new { size = "30" })<br />
+                        @Html.ValidationMessageFor(m => m.Hoten, "", new {style="color:red" })
+                        </td>   @* Những attribute name phải đặt trùng tên các cột trong CSDL *@
+                    </tr>
+                    <tr>
+                        <td class="right">Nghề nghiệp:</td>
+                        <td class="left">
+                            
+                           <select id="NgheNghiep" name="NgheNghiep" >
+                                <option value="CongNhan" selected="selected">Công nhân viên chức</option>
+                                <option value="TuDo">Nghề tự do</option>
+                                <option value="HocSinh">Học sinh</option>
+                                <option value="SinhVien">Sinh viên</option>
+                            </select>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="right">Địa chỉ:</td>
+                        <td class="left">@Html.TextBoxFor(m => m.DiaChi, new { size = "30" })<br/>
+                            @Html.ValidationMessageFor(m => m.DiaChi, "", new { style = "color:red" })
+
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="right">Email:</td>
+                        <td class="left">@Html.TextBoxFor(m => m.Email, new { size = "30" })<br />
+                            @Html.ValidationMessageFor(m => m.Email, "", new { style = "color:red" })
+</td>
+                    </tr>
+                    <tr>
+                        <td class="right">Nội dung:</td>
+                        <td class="left">@Html.TextAreaFor(m => m.NoiDung, new { cols = "20", rows = "5" })<br />
+                            @Html.ValidationMessageFor(m => m.NoiDung, "", new { style = "color:red" })
+</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" value="Gửi " />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            @*@Html.ValidationSummary("", new { style="color:#c80209"} )*@
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <div style="clear:both"></div>
+            <hr />
+            <p style="font-size: 20px; color: #8C0209; font-weight: bold">Bản đồ</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.142752580227!2d106.7143897142871!3d10.80037676170568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528afcee3d723%3A0x648fc24ef1c0146f!2zxJBp4buHbiBCacOqbiBQaOG7pywgUGjGsOG7nW5nIDI1LCBCw6xuaCBUaOG6oW5oLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1477902054537" width="465" height="450" frameborder="0" style="border:0"></iframe>
+        </div>
+    </section>
+    <!--end content-->
+    <!-- start sidebars -->
+    <aside id="sidebar2" class="sidebar">
+        @Html.Partial("_GioHangPartial")
+        @Html.Action("_TinThoiTrangPartial", "Home")
+    </aside>
+    <div style="clear:both;">&nbsp;</div>
+</section>

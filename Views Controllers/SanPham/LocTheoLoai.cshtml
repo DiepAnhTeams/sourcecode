@@ -1,0 +1,119 @@
+﻿@using Shop_thien_thanh.Models;
+@using PagedList.Mvc;
+@using PagedList;
+@model IPagedList<SanPham>
+@{
+    ViewBag.Title = "Lọc theo phân loại";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head{
+    <link href="~/Content/Style/paging.css" rel="stylesheet" />
+    <!-- Fancybox -->
+    <link type="text/css" rel="stylesheet" href="~/Content/Style/jquery.fancybox.css" media="screen" />
+    <script type="text/javascript" src="~/Scripts/jquery.fancybox.pack.js"></script>
+    <!-- Optionally add helpers - button, thumbnail and/or media -->
+    <link type="text/css" rel="stylesheet" media="screen" href="~/Content/Style/jquery.fancybox-buttons.css" />
+    <script type="text/javascript" src="~/Scripts/jquery.fancybox-buttons.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.fancybox-media.js"></script>
+    <script type="text/javascript">
+        $('.fancybox').fancybox({
+            openEffect: 'none',
+            closeEffect: 'none',
+
+            prevEffect: 'none',
+            nextEffect: 'none',
+
+            closeBtn: false,
+
+            helpers: {
+                title: {
+                    type: 'inside'
+                },
+                buttons: {}
+            },
+
+            afterLoad: function () {
+                this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+            }
+
+        });
+
+    </script>
+
+}
+<section id="mainContainer">
+
+    <!--start sidebar2-->
+    <aside id="sidebar2" class="sidebar">
+        <div class="subsidebar">
+            @Html.Partial("_GioHangPartial")
+        </div>
+    </aside>
+    <!--end sidebar1-->
+    <!--start content-->
+    <section id="maincontent">
+        <div class="muctieude2">
+            <div class="tieude">&loz; @ViewBag.TenPhanLoai &raquo;&raquo;</div>
+            <div class="dshinh">
+
+                <table style=" border-collapse: collapse;">
+                   <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    @foreach (SanPham item in Model.Take(4))
+                                    {
+                                        <td>
+                                            <a href="@Url.Action("ChiTiet", "SanPham", new { id = item.SanPhamID})">
+                                                <img class="hinh" src="~/Photos/SanPham/@item.Hinh" /><br />
+                                                <div class="tensanpham">
+                                                    <span>@item.TenSanPham </span>
+                                                </div>
+                                            </a>
+                                            <a title="Đặt vào giỏ" href="@Url.Action("AddItem", "GioHang", new { id = item.SanPhamID, area=""})"><img src="~/images/cart2.png" class="gio" /></a>
+
+                                            Đơn giá:
+                                            <span>@item.DonGia.ToString("#,##0").Replace(',', '.')</span>
+
+                                            <br />
+                                        </td>
+                                    }
+                                </tr>
+
+                                <tr>
+                                    @foreach (SanPham item in Model.Skip(4).Take(4))
+                                    {
+                                        <td>
+                                            <a href="@Url.Action("ChiTiet", "SanPham", new { id = item.SanPhamID})">
+                                                <img class="hinh" src="~/Photos/SanPham/@item.Hinh" /><br />
+                                                <div class="tensanpham">
+                                                    <span>@item.TenSanPham </span>
+                                                </div>
+                                            </a>
+                                            <a title="Đặt vào giỏ" href="@Url.Action("AddItem", "GioHang", new { id = item.SanPhamID, area=""})"><img src="~/images/cart2.png" class="gio" /></a>
+
+                                            Đơn giá:
+                                            <span>@item.DonGia.ToString("#,##0").Replace(',', '.') đ</span>
+
+                                            <br />
+                                        </td>
+                                    }
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.PagedListPager(Model, trang => Url.Action("LocTheoLoai", "SanPham", new { phanLoaiID = Request.QueryString["phanLoaiID"], page =trang }))
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+ 
+    </section>
+    <!--end content-->
+    <div style="clear:both;">&nbsp;</div>
+</section>

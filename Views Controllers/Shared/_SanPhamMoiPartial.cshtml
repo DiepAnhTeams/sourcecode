@@ -1,0 +1,18 @@
+﻿@using Shop_thien_thanh.Models;
+@model List<SanPham>
+<div class="subsidebar">
+    <!--Mục 1-->
+    <div class="bar_title">Sản phẩm mới </div>
+    <div id="content_2" class="content">
+        <!-- Mục 2 -->
+        <ul>
+            @foreach (SanPham item in Model)
+            {
+                <li>
+                    <a href="@Url.Action("ChiTiet", "SanPham", new { id = item.SanPhamID})">@item.TenSanPham</a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+

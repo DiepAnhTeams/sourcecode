@@ -1,0 +1,236 @@
+﻿@using Shop_thien_thanh.Models;
+@model List<SanPham>
+
+
+@{
+    ViewBag.Title = "Shop Thiên Thanh - Thời trang nam nữ giá rẻ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head{
+    <!--2/ slider của banner -->
+    <link href="~/jQuery/slider/css/nivo-slider.css" rel="stylesheet" />
+    <link href="~/jQuery/slider/css/nivo-style.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.4.4.min.js"></script>
+    <script src="~/jQuery/slider/js/jquery.nivo.slider.pack.js"></script>
+    <script type="text/javascript">
+    $(window).load(function () {
+        $('#slider').nivoSlider({
+            effect: 'random',
+            slices: 8,
+            animSpeed: 900, //Slide transition speed
+            pauseTime: 3000,
+            startSlide: 0, //Set starting Slide (0 index)
+            directionNav: true, //Next & Prev
+        });
+    });
+    </script>
+    <!--3/ jcarousele -->
+    <script src="~/jQuery/jcarousels/jquery.jcarousel.min.js"></script>
+    <link href="~/jQuery/jcarousels/skin.css" rel="stylesheet" />
+    <script type="text/javascript">
+    function mycarousel_initCallback(carousel) {
+        // Disable autoscrolling if the user clicks the prev or next button.
+        carousel.buttonNext.bind('click', function () {
+            carousel.startAuto(0);
+        });
+
+        carousel.buttonPrev.bind('click', function () {
+            carousel.startAuto(0);
+        });
+
+        // Pause autoscrolling if the user moves with the cursor over the clip.
+        carousel.clip.hover(function () {
+            carousel.stopAuto();
+        }, function () {
+            carousel.startAuto();
+        });
+    };
+    jQuery(document).ready(function () {
+        jQuery('#mycarousel').jcarousel({
+            vertical: false,
+            auto: 2,
+            wrap: 'last',
+            initCallback: mycarousel_initCallback
+        });
+    });
+    </script>
+
+    <!--4/ custom scroll -->
+
+    <link href="~/jQuery/custom-scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+    <style>
+        .content {
+            width: 220px;
+            height: 220px;
+            overflow: auto;
+            background: #FFFFFF;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            -ms-border-radius: 3px;
+            border-radius: 3px;
+        }
+    </style>
+    <script src="~/jQuery/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script>
+    (function ($) {
+        $(window).load(function () {
+            $("#content_2").mCustomScrollbar({
+                scrollButtons: {
+                    enable: true
+                },
+                theme: "dark-thick"
+            });
+        });
+    })(jQuery);
+    /*theme:"light" /*"light", "dark", "light-2", "dark-2", "light-thick", "dark-thick", "light-thin", "dark-thin" */
+    </script>
+}
+
+<!--start content Page-->
+<section id="mainContainer">
+    <!--start sidebar1-->
+    <aside id="sidebar1" class="sidebar">
+        @Html.Action("_SanPhamMoiPartial", "Home")
+        @Html.Partial("_ThongKePartial")
+        @Html.Partial("_GioHangPartial")
+        @Html.Partial("_HoTroTrucTuyenPartial")
+    </aside>
+    <!--end sidebar1-->
+    <!--start content-->
+    <section id="maincontent">
+        <div class="banner">
+            <div id="slider" class="nivoSlider">
+                <img src="~/images/Cuahang_01.jpg" alt="" title="Cửa hàng Thiên Thanh" />
+                <img src="~/images/Cuahang_02.jpg" alt="" title="Gian hàng áo nữ" />
+                <img src="~/images/Cuahang_03.jpg" alt="" title="Gian hàng quần áo nam" />
+                <img src="~/images/Cuahang_04.jpg" alt="" title="Gian hàng áo thun nữ" />
+                <img src="~/images/Cuahang_05.jpg" alt="" title="Gian hàng áo dạ hội nữ" />
+                <img src="~/images/Cuahang_06.jpg" alt="" title="Gian hàng túi xách" />
+                <img src="~/images/Cuahang_07.jpg" alt="" title="Gian hàng váy ngắn" />
+                <img src="~/images/Cuahang_08.jpg" alt="" title="Gian hàng trưng bày hàng mẫu" />
+                <img src="~/images/Cuahang_09.jpg" alt="" title="Gian hàng áo kiểu, quần jean nữ" />
+                <img src="~/images/Cuahang_10.jpg" alt="" title="Gian hàng thời trang nam" />
+            </div>
+        </div> <!--mục 1-->
+        <div class="contentItem">
+            <!--mục 2-->
+            <div class="tieude">
+                &loz; Thời trang cực hot!!!
+            </div>
+            <div style="margin-top:4px">
+                <ul id="mycarousel" class="jcarousel jcarousel-skin-tango">
+                    <li><img src="~/images/Moi_03.jpg" width="104" height="160" alt="" title="Đầm 01" /></li>
+                    <li><img src="~/images/Moi_04.jpg" width="104" height="160" alt="" /></li>
+                    <li><img src="~/images/Moi_07.jpg" width="104" height="160" alt="" /></li>
+                    <li><img src="~/images/Moi_06.jpg" width="104" height="160" alt="" /></li>
+                    <li><img src="~/images/Moi_09.jpg" width="104" height="160" alt="" /></li>
+                    <li><img src="~/images/Moi_10.jpg" width="104" height="160" alt="" /></li>
+                    <li><img src="~/images/Moi_11.jpg" width="104" height="160" alt="" /></li>
+                    <li><img src="~/images/Moi_05.jpg" width="104" height="160" alt="" /></li>
+                    <li><img src="~/images/Moi_15.jpg" width="104" height="160" alt="" /></li>
+                    <li><img src="~/images/Moi_17.jpg" width="104" height="160" alt="" /></li>
+                </ul>
+            </div>
+        </div>
+        <!--mục 3-->
+        <article id="article">
+            <h1>Chào mừng bạn đến với shop quần áo rẻ đẹp!</h1>
+            <h3>Hãy thỏa sức shopping online cùng shop quần áo rẻ đẹp nhé</h3>
+            <p>
+                Để chuẩn bị cho một ngày mới năng động và hiệu quả, bạn không thể lơ là trong
+                việc chọn lựa cho mình một bộ cánh tươm tất và thật xinh xắn. Diện cho mình nhựng bộ áo quần hợp thời trang, vừa thanh lịch lại vừa rất trẻ trung, duyên dáng, sành điệu... đó chính là điều
+                mà
+                PDA <span>Shop</span> muốn giới thiệu với các bạn.
+            </p>
+            <a href="@Url.Action("About")">
+                <p class="readmore">
+                    &laquo;&laquo;&nbsp;&nbsp;Xem chi tiết&nbsp;&nbsp;&raquo;&raquo;
+                </p>
+            </a>
+        </article>
+        <div class="contenItem">
+            <!--mục 4-->
+            <div class="tieude">
+                &loz; Thời trang nam
+            </div>
+            <div class="dshinh" style="margin-top: 4px">
+                <table>
+                    <tr>
+                        @foreach(SanPham item in Model.Take(4))
+                        { 
+                        <td valign="top">
+                            <a href="@Url.Action("ChiTiet","SanPham", new {id = item.SanPhamID })">
+                                <img src="~/Photos/Sanpham/@item.Hinh" alt="" class="hinh" />
+                                <div class="tensanpham">
+                                    @item.TenSanPham
+                                </div>
+                            </a>
+                            <a title="Đặt vào giỏ" href="@Url.Action("AddItem", "GioHang", new { id = item.SanPhamID, area=""})"><img src="~/images/cart2.png" class="gio" /></a>
+                             Đơn giá: @item.DonGia.ToString("#,##0").Replace(',','.')
+                        </td>
+                        }
+                    
+                    </tr>
+                    <tr>
+                        @foreach (SanPham item in Model.Skip(4).Take(4))
+                        {
+                            <td valign="top">
+                                <a href="@Url.Action("ChiTiet","SanPham", new {id = item.SanPhamID })">
+                                    <img src="~/Photos/Sanpham/@item.Hinh" alt="" class="hinh" />
+                                    <div class="tensanpham">
+                                        @item.TenSanPham
+                                    </div>
+                                </a>
+                                <a title="Đặt vào giỏ" href="@Url.Action("AddItem", "GioHang", new { id = item.SanPhamID, area=""})"><img src="~/images/cart2.png" class="gio" /></a>
+                                Đơn giá: @item.DonGia.ToString("#,##0").Replace(',', '.')
+                            </td>
+                        }
+                    </tr>
+                </table>
+            </div>
+            <!--mục 5-->
+            <div class="tieude">
+                &loz; Thời trang nữ
+            </div>
+            <div class="dshinh" style="margin-top: 4px">
+                <table>
+                    <tr>
+                        @foreach (SanPham itemNu in ((List<SanPham>)ViewBag.dsSanPhamNu).Take(4))
+                        {
+                            <td valign="top">
+                                <a href="@Url.Action("ChiTiet","SanPham", new {id = itemNu.SanPhamID })">
+                                    <img src="~/Photos/Sanpham/@itemNu.Hinh" alt="" class="hinh" />
+                                    <div class="tensanpham">
+                                        @itemNu.TenSanPham
+                                    </div>
+                                </a>
+                                <a title="Đặt vào giỏ" href="@Url.Action("AddItem", "GioHang", new { id = itemNu.SanPhamID, area=""})"><img src="~/images/cart2.png" class="gio" /></a>
+                                Đơn giá: @itemNu.DonGia.ToString("#,##0").Replace(',', '.')
+                            </td>
+                        }
+
+                    </tr>
+                    <tr>
+                        @foreach (SanPham itemNu in ((List<SanPham>)ViewBag.dsSanPhamNu).Skip(4).Take(4))
+                        {
+                            <td valign="top">
+                                <a href="@Url.Action("ChiTiet","SanPham", new {id = itemNu.SanPhamID })">
+                                    <img src="~/Photos/Sanpham/@itemNu.Hinh" alt="" class="hinh" />
+                                    <div class="tensanpham">
+                                        @itemNu.TenSanPham
+                                    </div>
+                                </a>
+                                <a title="Đặt vào giỏ" href="@Url.Action("AddItem", "GioHang", new { id = itemNu.SanPhamID, area=""})"><img src="~/images/cart2.png" class="gio" /></a>
+                                Đơn giá: @itemNu.DonGia.ToString("#,##0").Replace(',', '.')
+                            </td>
+                        }
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <!--end content-->
+    <div style="clear:both;">&nbsp;</div>
+</section>
+<!--end page-->

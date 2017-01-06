@@ -1,0 +1,142 @@
+﻿@using Shop_thien_thanh.Models;
+@model KhachHang
+@{
+    ViewBag.Title = "Đăng ký thành viên";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head{
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+     <!--jquery Datepicker -->
+    <link rel="stylesheet" href="~/DatePicker/themes/jquery-ui.css">
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/DatePicker/jquery-ui.js"></script>
+    <script src="~/DatePicker/jquery.ui.datepicker-vi.js"></script>
+    <script type="text/javascript">
+      $(function() {
+            $( "#datepicker" ).datepicker( $.datepicker.regional[ "vi" ] );
+       });
+    </script>
+
+    <!-- custom scroll -->
+
+<link href="~/jQuery/custom-scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+<style>
+    .content {
+        width: 220px;
+        height: 220px;
+        overflow: auto;
+        background: #FFFFFF;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        border-radius: 3px;
+    }
+</style>
+<script src="~/jQuery/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<script>
+    (function ($) {
+        $(window).load(function () {
+            $("#content_2").mCustomScrollbar({
+                scrollButtons: {
+                    enable: true
+                },
+                theme: "dark-thick"
+            });
+        });
+    })(jQuery);
+    /*theme:"light" /*"light", "dark", "light-2", "dark-2", "light-thick", "dark-thick", "light-thin", "dark-thin" */
+</script>
+}
+<!--start content Page-->
+<section id="mainContainer">
+    <!--start sidebar1-->
+    <aside id="sidebar1">
+        <div class="subsidebar">
+            <!--Mục 1-->
+            @Html.Action("_SanPhamMoiPartial", "Home")
+        </div>
+        <div class="subsidebar">
+            <!--Mục 2-->
+            @Html.Partial("_HoTroTrucTuyenPartial")
+        </div>
+        <div class="subsidebar">
+            <!--Mục 3-->
+            @Html.Partial("_ThongKePartial")
+        </div>
+    </aside>
+    <!--end sidebar1-->
+    <!--start content-->
+    <section id="content">
+        <div class="formbox">
+            <h1>Đăng ký thành viên mới</h1>
+            <p class="byline"></p>
+            <form action="@Url.Action("DangKy","KhachHang")" method="post">
+                @Html.AntiForgeryToken()
+                @*@Html.ValidationSummary( "", new {style="color:red"})*@
+                <p style="color:#00ff21">
+                    @ViewBag.Message
+                </p>
+                @*Sau này sẽ sửa lại giá trị action*@
+                <table cellpadding="2" cellspacing="2">
+                    <tr>
+                        <td class="right">Tên đăng nhập:</td>
+                        <td class="left">@Html.TextBoxFor(m=>m.TenDangNhap)
+                        @Html.ValidationMessageFor(m => m.TenDangNhap, "", new { style="color:#c80209"})
+                        @Html.ValidationMessage("loitendangnhap",new { style="color:red"})
+                        </td>   @* Những attribute name phải đặt trùng tên các cột trong CSDL *@
+                    </tr>
+                    <tr>
+                        <td class="right">Mật khẩu:</td>
+                        <td class="left">@Html.PasswordFor(m => m.MatKhau)<br />
+                        @Html.ValidationMessageFor(m => m.MatKhau, "", new { style = "color:#c80209" })</td>
+                    </tr>
+                    <tr>
+                        <td class="right">Nhập lại mật khẩu:</td>
+                        <td class="left"><input type="password" name="NhapLaiMatKhau"></td>
+                    </tr>
+                    <tr>
+                        <td class="right">Họ và tên:</td>
+                        <td class="left">@Html.TextBoxFor(m => m.HoTen)<br />
+                        @Html.ValidationMessageFor(m => m.HoTen, "", new { style = "color:#c80209" })</td>
+                    </tr>
+                    <tr>
+                        <td class="right">Giới tính:</td>
+                        <td class="left"><input type="checkbox" name="GioiTinh" value="true">Nam</td>
+                    </tr>
+                    <tr>
+                        <td class="right">Ngày sinh:</td>
+                        <td class="left">@Html.TextBoxFor(m => m.NgaySinh, new { id="datepicker" })<br/>
+                        @Html.ValidationMessageFor(m => m.NgaySinh, "", new { style = "color:#c80209" })</td>
+                    </tr>
+                    <tr>
+                        <td class="right">Email:</td>
+                        <td class="left">@Html.TextBoxFor(m => m.Email)<br/>
+                        @Html.ValidationMessageFor(m => m.Email, "", new { style = "color:#c80209" })</td>
+                    </tr>
+                    <tr>
+                        <td class="right">Điện thoại:</td>
+                        <td class="left">@Html.TextBoxFor(m => m.DienThoai)<br />
+                        @Html.ValidationMessageFor(m => m.DienThoai, "", new { style = "color:#c80209" })</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" value="Đồng ý" />
+                           
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </section>
+    <!--end content-->
+    <!-- start sidebars -->
+    <aside id="sidebar2" class="sidebar" >
+        @Html.Partial("_GioHangPartial")
+        @Html.Action("_TinThoiTrangPartial","Home")
+    </aside>
+    <div style="clear:both;">&nbsp;</div>
+</section>
+

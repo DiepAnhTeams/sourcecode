@@ -1,0 +1,42 @@
+﻿@using Shop_thien_thanh.Models;
+@model List<PhanLoai>
+<section id="menuContaniner">
+    <nav id="wrapper">
+        <ul class="main_nav">
+            <li class="current_page_item">@Html.ActionLink("Trang chủ","Index","Home")</li>
+
+            @foreach (PhanLoai item in Model)
+            {
+                <li>
+                    @*<a href="@Url.Action("LocTheoLoai", "SanPham", new { phanloaiID  = item.PhanLoaiID})">@item.TenPhanLoai</a>*@
+                    @Html.ActionLink(item.TenPhanLoai, "LocTheoLoai", "SanPham", new { phanloaiID = item.PhanLoaiID},null)
+                    <ul class="sub_nav">
+                        @foreach (Nhomsp itemNhomSp in ((List<Nhomsp>)ViewBag.dsNhomSp).Where(m => m.PhanLoaiID == item.PhanLoaiID).ToList())
+                        {
+                            <li><a href="@Url.Action("LocTheoNhom", "SanPham", new { nhomspID  = itemNhomSp.NhomspID})">@itemNhomSp.TenNhomsp</a></li>
+                        }
+                    </ul>
+                </li>
+            }
+
+           
+            <li>
+                <a href="@Url.Action("About","Home")">Giới thiệu</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Contact","Home")">
+                    <img src="~/images/Email.gif" align="middle" style="height: 20px" />
+                    Liên hệ
+                </a>
+            </li>
+            <li>
+                <form action="@Url.Action("TimKiem","SanPham")" method="get" style="padding-left:10px">
+                    <input  placeholder="Tên sản phẩm"  type="text" name="tukhoa">&nbsp;
+                    <input  type="image" src="~/images/Search2.png">
+                </form>   
+            </li>
+        </ul>
+
+    </nav>
+
+</section>

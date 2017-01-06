@@ -1,0 +1,20 @@
+﻿@using Shop_thien_thanh.Models;
+@model List<BaiViet>
+<div class="subsidebar">
+    <div class="bar_title">
+        <div class="bar_left"></div>
+        <div class="bar_bg">Tin thời trang</div>
+        <div class="bar_right"></div>
+    </div>
+    <div class="subsidecontent">
+        <ul>
+            @foreach(BaiViet item in Model)
+            { 
+            <li>
+                <a href="#">@item.TuaBaiViet</a>
+                <img src="~/images/@item.HinhDaiDien" />
+            </li>
+            }
+        </ul>
+    </div>
+</div>

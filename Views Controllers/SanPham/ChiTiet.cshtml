@@ -1,0 +1,143 @@
+﻿@using Shop_thien_thanh.Models;
+@model SanPham
+@{
+    ViewBag.Title = "Chi tiết sản phẩm ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8&appId=535650699919262";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+@section head{
+    <!-- Fancybox -->
+    <link type="text/css" rel="stylesheet" href="~/Content/Style/jquery.fancybox.css" media="screen" />
+    <script type="text/javascript" src="~/Scripts/jquery.fancybox.pack.js"></script>
+    <!-- Optionally add helpers - button, thumbnail and/or media -->
+    <link type="text/css" rel="stylesheet" media="screen" href="~/Content/Style/jquery.fancybox-buttons.css" />
+    <script type="text/javascript" src="~/Scripts/jquery.fancybox-buttons.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.fancybox-media.js"></script>
+    <script type="text/javascript">
+        $('.fancybox').fancybox({
+            openEffect: 'none',
+            closeEffect: 'none',
+
+            prevEffect: 'none',
+            nextEffect: 'none',
+
+            closeBtn: false,
+
+            helpers: {
+                title: {
+                    type: 'inside'
+                },
+                buttons: {}
+            },
+
+            afterLoad: function () {
+                this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+            }
+
+        });
+
+    </script>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+}
+
+
+<section id="mainContainer">
+    <!--start sidebar2-->
+    <aside id="sidebar2" class="sidebar">
+        @Html.Partial("_GioHangPartial")
+        @Html.Action("_TinThoiTrangPartial","Home")
+    </aside>
+    <!--end sidebar1-->
+    <!--start content-->
+    <section id="maincontent">
+        <div id="khungsp">
+            <div id="hinhsp">
+                <img src="~/Photos/Sanpham/@Model.Hinh" width="394" height="500" />
+            </div>
+            <div id="thongtinsp">
+                <h4>Mã sản phẩm: @Model.SanPhamID</h4>
+                <h4>@Model.TenSanPham</h4>
+                <dl>
+                    <dt>
+                        - Kích thước:
+                    <dt />
+                    <dd>+ Ngực: 86cm</dd>
+                    <dd>+ Eo: 70cm</dd>
+                    <dd>+ Dài: 81cm</dd>
+                </dl>
+                <br />
+                -Màu sắc: đen viền da.<br /><br />
+                -Chất liệu: kaki tuyết mưa mịn đẹp.
+                <h4>-Đơn giá: @Model.DonGia.ToString("#,##0").Replace(',', '.') VNĐ</h4>
+               
+
+                <a title="Đặt vào giỏ" href="@Url.Action("AddItem", "GioHang", new { id = Model.SanPhamID, area=""})"><img src="~/images/cart2.png" class="gio" /></a>
+                <br/><br/>
+                <div class="fb-like" data-href="@Request.Url" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                <br /><br />
+                <div class="g-plusone" data-annotation="inline" data-width="100" style="padding-top:5px"></div>
+            </div>
+        </div>
+        <div style="clear: both"> </div>
+        <div class="fb-comments" data-href="@Request.Url" style="width:inherit" data-numposts="5"></div>
+        <div class="contenItem" style="clear:both">
+            <!--mục 4-->
+            <div class="tieude">
+                &loz; Sản phẩm cùng nhóm
+            </div>
+            <div class="dshinh" style="margin-top: 4px">
+                <table>
+                    <tr>
+                        @foreach (SanPham item in ((List<SanPham>)ViewBag.sanPhamCungNhom).Take(4))
+                        {
+                            <td valign="top">
+                                <a class="fancybox" rel="group" href="~/Photos/Sanpham/@item.Hinh">
+                                    <img src="~/Photos/Sanpham/@item.Hinh" alt="" class="hinh" />
+                                </a>
+                                <a href="@Url.Action("ChiTiet", "SanPham", new {id = item.SanPhamID })">
+                                    <div class="tensanpham">
+                                        @item.TenSanPham
+                                    </div>
+                                </a>
+                                <a title="Đặt vào giỏ" href="@Url.Action("AddItem", "GioHang", new { id = item.SanPhamID, area=""})"><img src="~/images/cart2.png" class="gio" /></a>
+
+                              Đơn giá: @item.DonGia.ToString("#,##0").Replace(',', '.') đ
+                            </td>
+                        }
+                    </tr>
+                    <tr>
+                        @foreach (SanPham item in ((List<SanPham>)ViewBag.sanPhamCungNhom).Skip(4).Take(4))
+                        {
+                            <td valign="top">
+                                <a class="fancybox" rel="group" href="~/Photos/Sanpham/@item.Hinh">
+                                    <img src="~/Photos/Sanpham/@item.Hinh" alt="" class="hinh" />
+                                </a>
+                                <a href="@Url.Action("ChiTiet", "SanPham", new {id = item.SanPhamID })">
+                                    <div class="tensanpham">
+                                        @item.TenSanPham
+                                    </div>
+                                </a>
+                                <a title="Đặt vào giỏ" href="@Url.Action("AddItem", "GioHang", new { id = item.SanPhamID, area=""})"><img src="~/images/cart2.png" class="gio" /></a>
+
+                                Đơn giá: @item.DonGia.ToString("#,##0").Replace(',', '.') đ
+                            </td>
+                        }
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </section>
+    <!--end content-->
+    <div style="clear:both;">&nbsp;</div>
+</section>
+<!--end page-->
+<!--start Footer-->
