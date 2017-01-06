@@ -1,0 +1,24 @@
+﻿@model Shop_thien_thanh.Models.PhanLoai
+
+@{
+    ViewBag.Title = "Xoá Phân Loại";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr/>
+<h3>Bạn có chắc muốn xoá phân loại @Model.TenPhanLoai ?</h3>
+<div>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="id" value="@Model.PhanLoaiID" />
+        <div class="form-actions no-color">
+            <input type="submit" value="Xoá" style="background:#c80209; color:#fff; " /> |
+            @Html.ActionLink("Không xoá", "Index")
+        </div>
+    }
+</div>

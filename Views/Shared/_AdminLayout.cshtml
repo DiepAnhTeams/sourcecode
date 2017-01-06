@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/Style/default.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.11.0.min.js"></script>
+    <script src="~/Scripts/Thuvien.js"></script>
+    @RenderSection("head", false)
+    <!-- menu jquery -->
+    <link href="~/jQuery/Menu/style.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <!--start content Page-->
+    <section id="mainContainer">
+        <header id="pageHeader">
+            <img src="~/Images/LogoAdmin.jpg" />
+            <div id="noiDungLogo">
+                <h1>
+                    PDA
+                    <span>Shop</span>
+                </h1>
+            </div>
+        </header>
+        <nav id="wrapper" class="clear borderAL">
+            <!-- -->
+            <ul class="main_nav">
+                <li>
+                    <a href="@Url.Action("Index", "Home", new { area=""})">Trang chủ </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "PhanLoai", new { area="Admin"})">Phân loại </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "NhomSanPham", new { area="Admin"})">Nhóm sản phẩm </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "SanPham", new { area="Admin"})">Sản phẩm </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("DangXuat","KhachHang",new { area=""})">Đăng xuất</a>
+                </li>
+            </ul>
+
+        </nav>
+
+        <section id="mainContentAdmin">
+            @* Ghi chú: nội dung thiết kế riêng của mỗi view *@
+            @RenderBody()
+
+        </section>
+        <!--start Footer-->
+        <footer id="ftr">
+            <div id="footer">
+                <p class="copyright">
+                    &copy;&nbsp;&nbsp;2016 All Rights Reserved &nbsp;&bull;&nbsp; Design by
+                    <a href="http://www.alphatek.edu.vn/">Diệp Anh - 13DTHC05</a>
+                </p>
+                <p class="link">
+                    <a href="https://www.facebook.com/hoiyeuthichlaptrinh"><img src="~/images/facebook.png" /></a>
+                    <a href="http://www.youtube.com/hoclaptrinh"><img src="~/images/youTube.png" /></a>
+                </p>
+            </div>
+        </footer>
+    </section>
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Shop_thien_thanh.Models.PhanLoai>
+
+@{
+    ViewBag.Title = "Danh Sách Phân Loại";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section head{
+<link href="~/Content/Style/flattable.css" rel="stylesheet" />
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+<p>
+    @Html.ActionLink("Tạo mới", "Create")
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenPhanLoai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BiDanh)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+  
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <b>@Html.DisplayFor(modelItem => item.TenPhanLoai)</b>
+                </td>
+                <td>
+                    <b>@Html.DisplayFor(modelItem => item.BiDanh)</b>
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.PhanLoaiID})"><i class="material-icons button edit">Sửa</i></a>  |
+                    <a href="@Url.Action("Delete", new { id = item.PhanLoaiID })"><i class="material-icons button edit">Xoá</i></a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

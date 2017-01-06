@@ -1,0 +1,84 @@
+﻿@model Shop_thien_thanh.Models.SanPham
+
+@{
+    ViewBag.Title = "Chi Tiết Sản Phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr/>
+<div style="width:40%;float:left;text-align:center">
+    <img src="~/Photos/SanPham/@Model.Hinh" width="170" height="180" />
+</div>
+<div style="width:60%;float:right">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSanPham):
+        </dt>
+
+        <dd>
+           <b> @Html.DisplayFor(model => model.TenSanPham)</b>
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonGia):
+        </dt>
+
+        <dd>
+            <b> @Html.DisplayFor(model => model.DonGia) VNĐ</b>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaKM):
+        </dt>
+
+        <dd>
+            <b>@Html.DisplayFor(model => model.GiaKM) VNĐ</b>
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NhomspID):
+        </dt>
+
+        <dd>
+            <b>@Html.DisplayFor(model => model.NhomspID)</b>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayCapNhat):
+        </dt>
+
+        <dd>
+            <b> @Html.DisplayFor(model => model.NgayCapNhat)</b>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgungBan)
+        </dt>
+
+        <dd>
+            <b>  @Html.DisplayFor(model => model.NgungBan)</b>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BiDanh):
+        </dt>
+
+        <dd>
+            <b> @Html.DisplayFor(model => model.BiDanh)</b>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa):
+        </dt>
+
+        <dd>
+            <b>@Html.DisplayFor(model => model.MoTa)</b>
+        </dd>
+    </dl>
+</div>
+<p style="clear:both">
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.SanPhamID, page = Request.QueryString["page"] }) |
+    @Html.ActionLink("Về danh sách", "Index",new {page = Request.QueryString["page"] })
+</p>

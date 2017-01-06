@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Shop_thien_thanh.Models.Nhomsp>
+
+@{
+    ViewBag.Title = "Danh Sách Nhóm Sản Phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section head{
+    <link href="~/Content/Style/flattable.css" rel="stylesheet" />
+}
+<h2>@ViewBag.Title</h2>
+<hr />
+<p>
+    @Html.ActionLink("Tạo mới", "Create")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenNhomsp)
+            </th>
+            <th>
+                Thuộc phân loại
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BiDanh)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <b> @Html.DisplayFor(modelItem => item.TenNhomsp)</b>
+                </td>
+                <td>
+                    <b>@Html.DisplayFor(modelItem => item.PhanLoai.TenPhanLoai)</b>
+                </td>
+                <td>
+                    <b>@Html.DisplayFor(modelItem => item.BiDanh)</b>
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.NhomspID})"><i class="material-icons button edit">Sửa</i></a>  |
+                    <a href="@Url.Action("Delete", new { id = item.NhomspID })"><i class="material-icons button edit">Xoá</i></a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+
+</table>
