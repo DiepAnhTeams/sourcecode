@@ -1,0 +1,195 @@
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link type="text/css" rel="stylesheet" href="Style/default.css" />
+		<title>Đăng ký</title>
+		<script type="text/javascript" src="Scripts/Thuvien.js"></script>
+		 <!--2/jquery Datepicker -->
+     <link rel="stylesheet" href="DatePicker/themes/jquery-ui.css">
+      <script src="Scripts/jquery-1.9.1.min.js"></script>
+      <script src="DatePicker/jquery-ui.js"></script>
+      <script src="DatePicker/jquery.ui.datepicker-vi.js"></script>
+      <script type="text/javascript">
+      $(function() {
+            $( "#datepicker" ).datepicker( $.datepicker.regional[ "vi" ] );
+       }); 
+      </script>
+	  <!-- menu jquery -->
+    <script src="jQuery/Menu/simpleMenu.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="jQuery/Menu/style.css" />
+	</head>
+	<body >
+	<!--start header-->
+	<header id="header" >
+		<iframe src="Header.html" width="1000px" height="100px" scrolling="no" style="border:none">
+		</iframe>
+	</header>
+	<!--end header-->
+	<!--start menu-->
+	<section id="menuContaniner" >
+		<nav id="wrapper" >
+            <ul class="main_nav" >
+                 <li class="current_page_item"><a href="TrangChu.html">Trang chủ</a></li>
+                 <li><a href="#">Quần áo nữ</a>
+            		<ul class="sub_nav">
+                		<li><a href="#">Áo thun</a></li>
+                		<li><a href="#">Áo Sơ mi</a></li>
+                		<li><a href="#">Quần tây</a></li>
+                		<li><a href="#">Quần jean</a></li>
+            		</ul>
+        		</li>
+        		<li><a href="#">Quần áo nam</a>
+            		<ul class="sub_nav">
+                		<li><a href="#">Áo thun</a></li>
+               			<li><a href="#">Áo Sơ mi</a></li>
+                	    <li><a href="#">Quần tây</a></li>
+                		<li><a href="#">Quần jean</a></li>
+            		</ul>
+        		</li>
+       			 <li><a href="#">Phụ kiện</a>
+            		<ul class="sub_nav">
+                		<li><a href="#">Mắt kính</a></li>
+                		<li><a href="#">Dây nịt</a></li>
+                		<li><a href="#">Giỏ xách</a></li>
+                		<li><a href="#">Nón</a></li>
+                		<li><a href="#">Giày dép</a></li>
+           			 </ul>
+       			 </li>
+       			 <li><a href="#">Tin tức sự kiện</a>
+            		<ul class="sub_nav">
+                		<li><a href="#">Tin thời trang</a></li>
+                		<li><a href="#">Sự kiện thời trang</a></li>
+                		<li><a href="#">Kiến thức thời trang</a></li>
+                		<li><a href="#">Mẹo thời trang</a></li>
+           			 </ul>
+       			 </li>
+				 <li>
+				    <a href="GioiThieu.html">Giới thiệu</a>
+				 </li>
+       			 <li><a href="#"><img src="images/Email.gif" align="absmiddle" style="height: 20px" /> 
+                			Liên hệ</a>
+        		</li>
+             </ul>			    
+     </nav>
+	</section>
+	<!--end menu-->
+	<!--start content Page-->
+	<section id="mainContainer">
+		<!--start sidebar1-->
+		<aside id="sidebar1" >
+			<div class="subsidebar"> <!--Mục 1-->
+				<iframe src="SanPhamMoi.html" height="450px" scrolling="no" style="border: none">
+				</iframe>
+			</div>
+			<div class="subsidebar"> <!--Mục 2-->
+				<iframe src="HoTroOnline.html" height="280px" scrolling="no" style="border: none">
+				</iframe>
+			</div>
+			<div class="subsidebar"> <!--Mục 3-->
+				<iframe src="ThongKe.html" height="150px" scrolling="no" style="border: none">
+				</iframe>
+			</div>
+		</aside>
+		<!--end sidebar1-->
+	<!--start content-->
+	<section id="content">
+		 <div class="formbox"> 
+		   <h1>Đăng ký thành viên mới</h1>
+		   <p class="byline"></p>
+		   <form>
+		   	<table cellpadding="2px" cellspacing="2px">
+		   		<tr>
+		   			<td class="right">Tên đăng nhập:</td>
+		   			<td class="left"><input type="text" id="tendn" value="tuannguyen"></td>
+		   		</tr>
+		   		<tr>
+		   			<td class="right">Mật khẩu:</td>
+		   			<td class="left"><input type="password" id="matkhau" value="tuannguyen"></td>
+		   		</tr>
+		   		<tr>
+		   			<td class="right">Nhập lại mật khẩu:</td>
+		   			<td class="left"><input type="password" id="nhaplaimk" value="tuannguyen"></td>
+		   		</tr>
+		   		<tr>
+		   			<td class="right">Họ và tên:</td>
+		   			<td class="left"><input type="text" id="hoten" value="Nguyễn Ái Tuấn"></td>
+		   		</tr>
+		   		<tr>
+		   			<td class="right">Giới tính:</td>
+		   			<td class="left"><input type="checkbox" id="gioitinh" value="true">Nam</td>
+		   		</tr>
+		   		<tr>
+		   			<td class="right">Ngày sinh:</td>
+		   			<td class="left"><input type="text" id="datepicker"></td>
+		   		</tr>
+		   		<tr>
+		   			<td class="right">Nghề nghiệp:</td>
+		   			<td class="left">
+		   				<select id="ngnghiep">
+		   					<option value="1" selected="selected">Công nhân viên chức</option>
+		   					<option value="2">Nghề tự do</option>
+		   					<option value="3">Học sinh</option>
+		   					<option value="4">Sinh viên</option>
+		   				</select>
+		   			</td>
+		   		</tr>
+		   		<tr>
+		   			<td class="right">Email:</td>
+		   			<td class="left"><input type="text" id="email" value="ptthanh@yahoo.com"></td>
+		   		</tr>
+		   		<tr>
+		   			<td class="right">Điện thoại:</td>
+		   			<td class="left"><input type="text" id="dthoai" value="08 385 1056"></td>
+		   		</tr>
+		   		<tr>
+		   			<td class="right">Ghi chú:</td>
+		   			<td class="left"><textarea id="gchu" value="" rows="5" cols="38"> </textarea></td>
+		   		</tr>
+		   		<tr>
+		   			<td colspan="2" align="center"> 
+		   				<input type="button"  id="dongy" value="Đồng ý" onclick="if(!KiemTraDuLieu()) return false; ketqua.innerHTML=XuLyDangKy();"/>
+		   			
+		   			</td>
+		   			
+		   		</tr>
+		   	</table>
+		   </form>
+		   <div id="ketqua" style="line-height:2">[Thông tin xác nhận]</div>
+	   </div>
+	</section>
+	<!--end content-->
+	<!-- start sidebars -->
+	<aside id="sidebar2" class="sidebar">
+		<div class="subsidebar">
+			<iframe src="GioHang.html" scrolling="no" height="120px" width="220px" frameborder="0"></iframe>
+		</div>
+		<div class="subsidebar">
+			<iframe src="TinThoiTrang.html" scrolling="no" height="1300px" width="220px" frameborder="0"></iframe>
+		</div>
+	</aside>
+	<div style="clear:both;">&nbsp;</div>
+	</section>
+	<!--end content-->
+	
+	</section>
+	<!--end page-->
+	<!--start Footer-->
+	<footer id="footer" >
+		<p class="copyright" >
+			&copy;&nbsp;&nbsp;2015 All Rights Reserved&nbsp;&bull;&nbsp; Design by 
+			<a href="http://www.alphatek.edu.vn/" >
+				Alphatek Company
+			</a>
+		</p>
+		<p class="link" >
+			<a href="https://www.facebook.com/hoiyeuthichlaptrinh">
+				<img src="images/facebook.png" />
+			</a>
+			<a href="http://www.youtube.com/user/hoclaptrinh">
+				<img src="images/youTube.png" />
+			</a>
+		</p>
+	</footer>
+	</body>
+</html>

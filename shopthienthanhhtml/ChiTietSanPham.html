@@ -1,0 +1,235 @@
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link type="text/css" rel="stylesheet" href="Style/default.css" />
+		<script src="Scripts/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="Scripts/jquery.mousewheel-3.0.6.pack.js"></script>
+		<title>Chi tiết sản phẩm</title>
+	<!-- Fancybox -->
+	<link type="text/css" rel="stylesheet" href="Style/jquery.fancybox.css" media="screen"/>	
+	<script type="text/javascript" src="Scripts/jquery.fancybox.pack.js"></script>
+	<!-- Optionally add helpers - button, thumbnail and/or media -->
+	<link type="text/css" rel="stylesheet" media="screen" href="Style/jquery.fancybox-buttons.css"/>
+	<script type="text/javascript" src="Scripts/jquery.fancybox-buttons.js"></script>
+	<script type="text/javascript" src="Scripts/jquery.fancybox-media.js"></script>
+	<script type="text/javascript">
+	$('.fancybox').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+				
+			});
+
+	 </script>
+	</head>
+</script>
+<!-- menu jquery -->
+    <script src="jQuery/Menu/simpleMenu.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="jQuery/Menu/style.css" />
+	<body >
+	<!--start header-->
+	<header id="header" >
+	  <iframe src="Header.html" scrolling="no" height="100px" frameborder="0" width="1000px"> </iframe>
+	</header>
+	<!--end header-->
+	<!--start menu-->
+	<section id="menuContaniner" >
+		<nav id="wrapper" >
+            <ul class="main_nav" >
+                 <li class="current_page_item"><a href="TrangChu.html">Trang chủ</a></li>
+                 <li><a href="#">Quần áo nữ</a>
+            		<ul class="sub_nav">
+                		<li><a href="#">Áo thun</a></li>
+                		<li><a href="#">Áo Sơ mi</a></li>
+                		<li><a href="#">Quần tây</a></li>
+                		<li><a href="#">Quần jean</a></li>
+            		</ul>
+        		</li>
+        		<li><a href="#">Quần áo nam</a>
+            		<ul class="sub_nav">
+                		<li><a href="#">Áo thun</a></li>
+               			<li><a href="#">Áo Sơ mi</a></li>
+                	    <li><a href="#">Quần tây</a></li>
+                		<li><a href="#">Quần jean</a></li>
+            		</ul>
+        		</li>
+       			 <li><a href="#">Phụ kiện</a>
+            		<ul class="sub_nav">
+                		<li><a href="#">Mắt kính</a></li>
+                		<li><a href="#">Dây nịt</a></li>
+                		<li><a href="#">Giỏ xách</a></li>
+                		<li><a href="#">Nón</a></li>
+                		<li><a href="#">Giày dép</a></li>
+           			 </ul>
+       			 </li>
+       			 <li><a href="#">Tin tức sự kiện</a>
+            		<ul class="sub_nav">
+                		<li><a href="#">Tin thời trang</a></li>
+                		<li><a href="#">Sự kiện thời trang</a></li>
+                		<li><a href="#">Kiến thức thời trang</a></li>
+                		<li><a href="#">Mẹo thời trang</a></li>
+           			 </ul>
+       			 </li>
+				 <li>
+				    <a href="GioiThieu.html">Giới thiệu</div></a>
+				 </li>
+       			 <li><a href="#"><img src="images/Email.gif" align="absmiddle" style="height: 20px" /> 
+                			Liên hệ</a>
+        		</li>
+             </ul>
+			    
+     </nav>
+    
+	</section>
+	<!--end menu-->
+	<!--start content Page-->
+	<section id="mainContainer">
+
+		<!--start sidebar2-->
+		<aside id="sidebar2" class="sidebar">
+			<div class="subsidebar">
+				<iframe src="GioHang.html" scrolling="no" height="120px" width="220px" frameborder="0"> </iframe>
+			</div>
+			<div class="subsidebar">
+				<iframe src="TinThoiTrang.html" scrolling="no" height="1300px" width="220px" frameborder="0"> </iframe>
+			</div>
+		</aside>
+		<!--end sidebar1-->
+	<!--start content-->
+	<section id="maincontent">
+		<div id="khungsp">
+			<div id="hinhsp"> 
+		    	<img src="Photos/Sanpham/damlibra.jpg" width="394" height="500" />
+		    </div>
+			<div id="thongtinsp">
+				<h4>Mã sản phẩm: D1182</h4>
+				<h4>Đầm Libra Sang Trọng</h4>
+				<dt>- Kích thước:<br/>
+					<dd>+ Ngực: 86cm</dd>
+					<dd>+ Eo: 70cm</dd>
+					<dd>+ Dài: 81cm</dd>
+				</dt>
+				<br />
+				-Màu sắc: đen viền da.<br /><br />
+				-Chất liệu: kaki tuyết mưa mịn đẹp.
+				<h4>-Đơn giá: 1,200,000 VNĐ</h4>
+				<span>Số lượng:<input type="text" size="10" value="1" id="txtSoluong" /> </span>
+				
+				<input type="image" id="btnGiohang" src="images/cart2.png" />
+				
+			</div>
+		</div>
+		<div style="clear: both"> </div>
+		<div class="contenItem" > <!--mục 4-->
+			<div class="tieude" >
+					&loz; Sản phẩm cùng loại</div>
+				<div class="dshinh" style="margin-top: 4px">
+					<table>
+						<tr>
+							<td valign="top">
+								<a  class = "fancybox"  rel = "group"  href = "Photos/Sanpham/damdogiangsinh.jpg" >
+								<img src="Photos/Sanpham/damdogiangsinh.jpg" alt="" class="hinh"/>
+								Đầm Đỏ Mùa Giáng Sinh</a><br/>
+								<input type="image" src="images/cart2.png" class="gio" title="Chọn mua hàng"/> 300,000
+							</td>
+							<td valign="top">
+								<a  class = "fancybox"  rel = "group"  href = "Photos/Sanpham/damduoicafashion.jpg" >
+								<img src="Photos/Sanpham/damduoicafashion.jpg" alt="" class="hinh" />
+								Đầm Đuôi Cá Fashion</a><br/>
+								<input type="image" src="images/cart2.png" class="gio" title="Chọn mua hàng"/> 350,000
+							</td>
+							<td valign="top"><!-- <a href="ChiTietSP.html" > -->
+								<a  class = "fancybox"  rel = "group"  href = "Photos/Sanpham/damxoephoithateo.jpg" >
+								<img src="Photos/Sanpham/damxoephoithateo.jpg" alt="" class="hinh" />
+								Đầm Xòe Phối Thắt Eo</a><br/>
+								<input type="image" src="images/cart2.png" class="gio" title="Chọn mua hàng"/> 450,000
+							</td>
+							<td valign="top">
+								<a  class = "fancybox"  rel = "group"  href = "Photos/Sanpham/damphoimau2tui.jpg" >
+								<img src="Photos/Sanpham/damphoimau2tui.jpg"  alt="" class="hinh" />
+								Đầm Phối Màu 2 Túi</a><br/>
+								<input type="image" src="images/cart2.png" class="gio" title="Chọn mua hàng"/> 1,300,000
+							</td>
+						</tr>
+						<tr>
+							<td valign="top">
+								<a  class = "fancybox"  rel = "group"  href = "Photos/Sanpham/damphoirenromance.jpg" >
+								<img src="Photos/Sanpham/damphoirenromance.jpg" alt="" class="hinh" />
+								Đầm Phối Ren Romance</a><br/>
+								<input type="image" src="images/cart2.png" class="gio" title="Chọn mua hàng"/> 250,000
+							</td>
+							<td valign="top">
+								<a  class = "fancybox"  rel = "group"  href = "Photos/Sanpham/damcarotaylo.jpg" >
+								<img src="Photos/Sanpham/damcarotaylo.jpg" alt="" class="hinh" />
+								Đầm Caro Tay Lở</a><br/>
+								<input type="image" src="images/cart2.png" class="gio" title="Chọn mua hàng"/> 300,000
+							</td>
+							<td valign="top">
+								<a  class = "fancybox"  rel = "group"  href = "Photos/Sanpham/damsomihoatietbi.jpg" >
+								<img src="Photos/Sanpham/damsomihoatietbi.jpg" alt="" class="hinh"/>
+								Đầm Sơ Mi Họa Tiết Bi</a><br/>
+								<input type="image" src="images/cart2.png" class="gio" title="Chọn mua hàng"/> 700,000
+							</td>
+							<td valign="top">
+								<a  class = "fancybox"  rel = "group"  href = "Photos/Sanpham/damsocvintage.jpg" >
+								<img src="Photos/Sanpham/damsocvintage.jpg" alt="" class="hinh" />
+								Đầm Sọc Vintage</a><br/>
+								<input type="image" src="images/cart2.png" class="gio" title="Chọn mua hàng"/> 500,000
+							</td>
+						</tr>
+						<tr>
+							<td><a href="ChiTietSP.html" >
+								<a  class = "fancybox"  rel = "group"  href = "Photos/Sanpham/dambodyhoalan.jpg" >
+								<img src="Photos/Sanpham/dambodyhoalan.jpg" alt="" class="hinh" />
+								Đầm Body Hoa Lan</a><br/>
+								<input type="image" src="images/cart2.png" class="gio" title="Chọn mua hàng"/> 250,000
+							</td>
+							<td valign="top">
+								<a  class = "fancybox"  rel = "group"  href = "Photos/Sanpham/damlibra.jpg" >
+								<img src="Photos/Sanpham/damlibra.jpg" alt="" class="hinh" />
+								Đầm Libra Sang Trọng</a><br/>
+								<input type="image" src="images/cart2.png" class="gio" title="Chọn mua hàng"/> 300,000
+							</td>
+							<td valign="top">
+								<a  class = "fancybox"  rel = "group"  href = "Photos/Sanpham/damcongsoxeply.jpg" >
+								<img src="Photos/Sanpham/damcongsoxeply.jpg" alt="" class="hinh"/>
+								Đầm Công Sở Xếp Ly Thanh Lịch</a><br/>
+								<input type="image" src="images/cart2.png" class="gio" title="Chọn mua hàng"/> 700,000
+							</td>
+							<td valign="top">
+								<a  class = "fancybox"  rel = "group"  href = "Photos/Sanpham/damtonmacnha.jpg" >
+								<img src="Photos/Sanpham/damtonmacnha.jpg" alt="" class="hinh" />
+								Đầm Tôn Mặc Nhà Oversize Hoa</a><br/>
+								<input type="image" src="images/cart2.png" class="gio" title="Chọn mua hàng"/> 500,000
+							</td>
+						</tr>
+					</table>
+				</div>
+		</div>
+		</section>
+	<!--end content-->
+	<div style="clear:both;">&nbsp;</div>
+	</section>
+	<!--end page-->
+	<!--start Footer-->
+	<footer id="ftr" >
+		<iframe src="Footer.html" frameborder="0" width="1000px" height="70px" scrolling="no"></iframe>
+	</footer>
+	</body>
+</html>
